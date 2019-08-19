@@ -1,7 +1,7 @@
 # Description
 Vuejs wrapper for [`Tinytabs`](https://github.com/knadh/tinytabs) which is a super tiny javascript plugin for rendering tabs (< 2KB).
 
-Documentation and Demo: https://r-tiny-tabs.netlify.com
+Documentation and Demo: https://react-tiny-tabs.netlify.com
 
 ![vtt](https://user-images.githubusercontent.com/1731965/63014487-4d2da480-beac-11e9-9866-0673cd10635b.png)
 
