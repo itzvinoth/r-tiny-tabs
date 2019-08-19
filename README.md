@@ -1,5 +1,5 @@
 # React Tinytabs
-Vuejs wrapper for [`Tinytabs`](https://github.com/knadh/tinytabs) which is a super tiny javascript plugin for rendering tabs (< 2KB).
+Reactjs wrapper for [`Tinytabs`](https://github.com/knadh/tinytabs) which is a super tiny javascript plugin for rendering tabs (< 2KB).
 
 Documentation and Demo: https://react-tiny-tabs.netlify.com
 
@@ -96,5 +96,7 @@ onHandleBefore (id) {
 | onAfter        | function(id, tab). Callback function that gets evaluated after a tab is activated. The first arg is the id of the tab and the second is the DOM element of the tab.                                                             |
 | onClose        | function(id). Callback function that gets evaluated while closing the tab. The argument is the id of the tab.                                                             |                                          
 
+
+Please find out tinytabs wrapper for [`Vuejs`](https://github.com/mevinoth/vue-tiny-tabs)
 
 MIT License.
