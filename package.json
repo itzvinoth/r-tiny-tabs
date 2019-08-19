@@ -1,6 +1,6 @@
 {
   "name": "r-tiny-tabs",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "ReactJs wrapper for tinytabs component",
   "main": "src/index.js",
   "dependencies": {

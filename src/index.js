@@ -2,9 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types'
 import tinytabs from '@htoniv/tiny-tabs'
 
-let propStr = propTypes.string;
-let propBool = propTypes.boolean;
-
 class ReactTinyTabs extends React.Component {
     constructor(props) {
         super(props);
@@ -76,14 +73,14 @@ ReactTinyTabs.defaultProps = {
 };
 
 ReactTinyTabs.propTypes = {
-    id: propStr,
-    anchor: propBool,
-    closable: propBool,
-    hideTitle: propBool,
-    sectionClass: propStr,
-    titleClass: propStr,
-    tabsClass: propStr,
-    tabClass: propStr
+    id: propTypes.string,
+    anchor: propTypes.bool,
+    closable: propTypes.bool,
+    hideTitle: propTypes.bool,
+    sectionClass: propTypes.string,
+    titleClass: propTypes.string,
+    tabsClass: propTypes.string,
+    tabClass: propTypes.string
 };
 
 export default ReactTinyTabs;
