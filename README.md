@@ -14,45 +14,39 @@ $ npm install r-tiny-tabs
 ```
 
 # Example
-```vue
-<template>
-	<vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false" @on-close="onClose" @on-before="onBefore" @on-after="onAfter">
-		<div class="section" id="example">
-			<h3 class="title">Example code</h3>
-			<h3>Javascript</h3>
-		</div>
-		<div class="section" id="options">
-			<h3 class="title">Options table</h3>
-			<h3>Options</h3>
-		</div>
-		<div class="section" id="components">
-			<h3 class="title">Components</h3>
-			<h3>Options</h3>
-		</div>
-	</vue-tiny-tabs>
-</template>
+```jsx
+onHandleBefore (id) {
+    console.log('handle before', id)
+  }
 
-<script>
-import VueTinyTabs from 'vue-tiny-tabs'
+  onHandleAfter (id) {
+    console.log('handle after', id)
+  }
 
-export default {
-	name: 'TinyTabs',
-	components: {
-		'vue-tiny-tabs': VueTinyTabs
-	},
-	methods: {
-		onClose (id) {
-			console.log('Callback function that gets evaluated while closing the tab', id)
-        },
-		onBefore (id, tab) {
-			console.log('Callback function that gets evaluated before a tab is activated', id, tab)
-        },
-		onAfter (id, tab) {
-			console.log('Callback function that gets evaluated after a tab is activated', id, tab)
-		}
-	},
-}
-</script>
+  onHandleClose (id) {
+    console.log('handle close', id)
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <ReactTinyTabs id="mytbs" anchor={false} closable={true} hideTitle={false} onBefore={this.onHandleBefore} onAfter={this.onHandleAfter} onClose={this.onHandleClose}>
+          <div className="section" id="example">
+            <h3 className="title">Example code</h3>
+            <h3>Javascript</h3>
+          </div>
+          <div className="section" id="options">
+            <h3 className="title">Options table</h3>
+            <h3>Options</h3>
+          </div>
+          <div className="section" id="components">
+            <h3 className="title">Components</h3>
+            <h3>Options</h3>
+          </div>
+        </ReactTinyTabs>
+      </div>
+    )
+  }
 ```
 
 ### Customized CSS for styling
