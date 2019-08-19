@@ -1,68 +1,106 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Description
+Vuejs wrapper for [`Tinytabs`](https://github.com/knadh/tinytabs) which is a super tiny javascript plugin for rendering tabs (< 2KB).
 
-## Available Scripts
+Documentation and Demo: https://r-tiny-tabs.netlify.com
 
-In the project directory, you can run:
+![vtt](https://user-images.githubusercontent.com/1731965/63014487-4d2da480-beac-11e9-9866-0673cd10635b.png)
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Find the npm package [`link`](https://www.npmjs.com/package/r-tiny-tabs)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# Install and basic usage
+```sh
+$ npm install r-tiny-tabs
+```
 
-### `npm test`
+# Example
+```vue
+<template>
+	<vue-tiny-tabs id="mytabs" :anchor="false" :closable="true" :hideTitle="false" @on-close="onClose" @on-before="onBefore" @on-after="onAfter">
+		<div class="section" id="example">
+			<h3 class="title">Example code</h3>
+			<h3>Javascript</h3>
+		</div>
+		<div class="section" id="options">
+			<h3 class="title">Options table</h3>
+			<h3>Options</h3>
+		</div>
+		<div class="section" id="components">
+			<h3 class="title">Components</h3>
+			<h3>Options</h3>
+		</div>
+	</vue-tiny-tabs>
+</template>
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<script>
+import VueTinyTabs from 'vue-tiny-tabs'
 
-### `npm run build`
+export default {
+	name: 'TinyTabs',
+	components: {
+		'vue-tiny-tabs': VueTinyTabs
+	},
+	methods: {
+		onClose (id) {
+			console.log('Callback function that gets evaluated while closing the tab', id)
+        },
+		onBefore (id, tab) {
+			console.log('Callback function that gets evaluated before a tab is activated', id, tab)
+        },
+		onAfter (id, tab) {
+			console.log('Callback function that gets evaluated after a tab is activated', id, tab)
+		}
+	},
+}
+</script>
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Customized CSS for styling
+```css
+.tinytabs .tabs {
+	margin-left: 15px;
+	display: flex;
+	flex-flow: row wrap;
+}
+.tinytabs .tabs .tab .close {
+	padding-left: 5px;
+}
+.tinytabs .tabs .tab {
+	margin: 0 3px 0 0;
+	background: #e1e1e1;
+	display: block;
+	padding: 6px 15px;
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	border-radius: 3px 3px 0 0;
+}
+.tinytabs .section {
+	background: #f1f1f1;
+	overflow: hidden;
+	padding: 15px;
+	clear: both;
+	border-radius: 3px;
+}
+.tinytabs .tab.sel {
+	background: #f1f1f1;
+	color: #333;
+	text-shadow: none;
+}
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Options
+| Properties   | Description
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| anchor       | false (default) or true. If enabled, when a tab is clicked, it's id is set in url's fragment so that the tab is retained on page reloads.                                                                                       |
+| hideTitle    | false (default) or true. Hide the title element within section elements.                                                                                                                                                          |
+| sectionClass | Section element's class. Default is section.                                                                                                                                                                                    |
+| tabsClass    | Tab (ul) container's class. Default is tabs.                                                                                                                                                                                    |
+| tabClass     | Individual tab's (li) class. Default is tab.                                                                                                                                                                                    |
+| titleClass   | Title element's tag. Default is title.                                                                                                                                                                                          |
+| onBefore       | function(id, tab). Callback function that gets evaluated before a tab is activated. The first arg is the id of the tab and the second is the DOM element of the tab.                                                            |
+| onAfter        | function(id, tab). Callback function that gets evaluated after a tab is activated. The first arg is the id of the tab and the second is the DOM element of the tab.                                                             |
+| onClose        | function(id). Callback function that gets evaluated while closing the tab. The argument is the id of the tab.                                                             |                                          
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+MIT License.
