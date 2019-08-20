@@ -1,13 +1,13 @@
 {
   "name": "r-tiny-tabs",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "ReactJs wrapper for tinytabs component",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "dependencies": {
     "@htoniv/tiny-tabs": "^1.0.1"
   },
   "scripts": {
-    "build": "webpack -p"
+    "build": "./node_modules/.bin/babel src --out-file build/index.js"
   },
   "peerDependencies": {
     "react": "^16.9.0",
